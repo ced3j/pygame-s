@@ -54,6 +54,9 @@ font = pygame.font.Font(None, 35) # yazı fontu: none, büyüklük 35
 # aşağıda skor_text kısmında yazdıralım
 
 
+# Ses efekti
+eat_stx = pygame.mixer.Sound("C:/Users/Victus/Desktop/PyGame/snake-game/munch-sound-effect.mp3")
+
 
 # Oyun Döngüsü ---
 game = True # oyunun çalışıp çalışmadığını temsil edecek olan değişken
@@ -103,6 +106,7 @@ while game: # oyun değişkeni true olduğu sürece
         cookie_y = random.randrange(0, HEIGHT - snake_size, snake_size)
         snake_len += 1
         skor += 1
+        eat_stx.play()
 
     skor_text = font.render("Point: {}", format(skor), True, orange)
     # {} yerine format ile skor'u gönderiyoruz 
